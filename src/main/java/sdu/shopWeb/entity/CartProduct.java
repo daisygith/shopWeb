@@ -22,15 +22,17 @@ public class CartProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long cartId;
+//    private Long cartId;
 
-    private Long productId;
+//    private Long productId;
 
     private int quantity;
 
     @OneToOne
+    @JoinColumn(name= "cardId", nullable = true)
     private Cart cart;
 
     @OneToMany
+    @JoinColumn(name= "productId", nullable = true)
     private List<Product> products;
 }
