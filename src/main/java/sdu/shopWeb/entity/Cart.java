@@ -19,11 +19,10 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
-
     private double sumPrice;
 
     @OneToOne
+    @JoinColumn(name = "userId", nullable = true)
     private User user;
 
     @OneToMany
