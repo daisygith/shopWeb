@@ -8,10 +8,10 @@ public interface UserService {
 
     List<UserDTO> findAllUsers();
 
-    UserDTO findById(Long theId) throws Exception;
+    UserDTO findById(Long userId) throws Exception;
 
-    UserDTO save(UserDTO theUserDTO);
+    UserDTO save(UserDTO userDTO);
 
-    void deleteById(Long theId);
+    void deleteById(Long userId);
 
 }
