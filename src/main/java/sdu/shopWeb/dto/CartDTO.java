@@ -19,9 +19,7 @@ public class CartDTO {
 
     private double sumPrice;
 
-    @JsonIgnore
     private UserDTO userDTO;
 
-    @JsonIgnore
     private List<ProductDTO> productsDTO;
 }
