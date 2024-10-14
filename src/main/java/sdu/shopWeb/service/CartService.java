@@ -8,11 +8,10 @@ public interface CartService {
 
     List<CartDTO> findAllCarts();
 
-    CartDTO findById(Long theId) throws Exception;
+    CartDTO findById(Long cartId) throws Exception;
 
     CartDTO save(CartDTO cartDTO);
 
-    void deleteById(Long theId);
-
+    void deleteById(Long cartId);
 
 }
