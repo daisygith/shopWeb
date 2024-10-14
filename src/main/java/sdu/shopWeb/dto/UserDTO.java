@@ -16,6 +16,5 @@ public class UserDTO {
 
     private String name;
 
-    @JsonIgnore
     private CartDTO cartDTO;
 }
