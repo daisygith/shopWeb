@@ -8,9 +8,9 @@ public interface ProductService {
 
     List<ProductDTO> findAllProducts();
 
-    ProductDTO findById(Long theId) throws Exception;
+    ProductDTO findById(Long productId) throws Exception;
 
     ProductDTO save(ProductDTO productDTO);
 
-    void deleteById(Long theId);
+    void deleteById(Long productId);
 }
