@@ -1,6 +1,7 @@
-package sdu.shopWeb.dto;
+package sdu.shopWeb.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,11 +11,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+@Entity
+public class Users {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private CartDTO cartDTO;
+    @JsonIgnore
+    @OneToOne
+    private Cart cart;
+
 }

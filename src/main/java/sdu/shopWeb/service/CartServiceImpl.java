@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sdu.shopWeb.dto.CartDTO;
 import sdu.shopWeb.dto.ProductDTO;
-import sdu.shopWeb.dto.UserDTO;
+import sdu.shopWeb.dto.UsersDTO;
 import sdu.shopWeb.entity.Cart;
 import sdu.shopWeb.entity.Product;
-import sdu.shopWeb.entity.User;
+import sdu.shopWeb.entity.Users;
 import sdu.shopWeb.repository.CartRepository;
 
 import java.util.ArrayList;
@@ -46,9 +46,9 @@ public class CartServiceImpl implements CartService{
         CartDTO cartDTO = CartDTO.builder()
                 .id(cart.getId())
                 .sumPrice(cart.getSumPrice())
-                .userDTO(UserDTO.builder()
-                        .id(cart.getUser().getId())
-                        .name(cart.getUser().getName())
+                .usersDTO(UsersDTO.builder()
+                        .id(cart.getUsers().getId())
+                        .name(cart.getUsers().getName())
                         .build())
                 .productsDTO(cart.getProducts().stream()
                         .map(x -> ProductDTO.builder()
@@ -68,9 +68,9 @@ public class CartServiceImpl implements CartService{
         Cart cart = cartRepository.save(Cart.builder()
                         .id(cartDTO.getId())
                         .sumPrice(cartDTO.getSumPrice())
-                        .user(User.builder()
-                                .id(cartDTO.getUserDTO().getId())
-                                .name(cartDTO.getUserDTO().getName())
+                        .users(Users.builder()
+                                .id(cartDTO.getUsersDTO().getId())
+                                .name(cartDTO.getUsersDTO().getName())
                                 .build())
                         .products(cartDTO.getProductsDTO() != null ?
                                 cartDTO.getProductsDTO().stream()
@@ -86,10 +86,10 @@ public class CartServiceImpl implements CartService{
                 .sumPrice(cart.getSumPrice())
                 .build();
 
-        if(cart.getUser() != null) {
-            cartListDTO.setUserDTO(UserDTO.builder()
-                    .id(cartDTO.getUserDTO().getId())
-                    .name(cartDTO.getUserDTO().getName())
+        if(cart.getUsers() != null) {
+            cartListDTO.setUsersDTO(UsersDTO.builder()
+                    .id(cartDTO.getUsersDTO().getId())
+                    .name(cartDTO.getUsersDTO().getName())
                     .build());
         }
 

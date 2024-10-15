@@ -1,11 +1,9 @@
 package sdu.shopWeb.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sdu.shopWeb.entity.User;
 
 import java.util.List;
 
@@ -19,7 +17,7 @@ public class CartDTO {
 
     private double sumPrice;
 
-    private UserDTO userDTO;
+    private UsersDTO usersDTO;
 
     private List<ProductDTO> productsDTO;
 }

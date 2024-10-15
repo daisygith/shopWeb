@@ -1,10 +1,7 @@
 package sdu.shopWeb.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class Cart {
 
     @OneToOne
     @JoinColumn(name = "userId", nullable = true)
-    private User user;
+    private Users users;
 
     @OneToMany
     private List<Product> products;
