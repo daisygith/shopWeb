@@ -58,10 +58,10 @@ public class UsersServiceImpl implements UsersService {
         Users users = usersRepository.save(Users.builder()
                         .id(usersDTO.getId())
                         .name(usersDTO.getName())
-                        .cart(Cart.builder()
+                        .cart(usersDTO.getCartDTO() != null ? Cart.builder()
                                 .id(usersDTO.getCartDTO().getId())
                                 .sumPrice(usersDTO.getCartDTO().getSumPrice())
-                                .build())
+                                .build() : Cart.builder().sumPrice(0d).build())
                 .build());
 
         UsersDTO userListDTO = UsersDTO.builder()
@@ -71,8 +71,8 @@ public class UsersServiceImpl implements UsersService {
 
         if(users.getCart() != null){
             userListDTO.setCartDTO(CartDTO.builder()
-                            .id(usersDTO.getCartDTO().getId())
-                            .sumPrice(usersDTO.getCartDTO().getSumPrice())
+                            .id(users.getCart().getId())
+                            .sumPrice(users.getCart().getSumPrice())
                     .build());
         }
 

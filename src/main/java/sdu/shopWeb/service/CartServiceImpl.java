@@ -68,10 +68,10 @@ public class CartServiceImpl implements CartService{
         Cart cart = cartRepository.save(Cart.builder()
                         .id(cartDTO.getId())
                         .sumPrice(cartDTO.getSumPrice())
-                        .users(Users.builder()
+                        .users(cartDTO.getUsersDTO() != null ? Users.builder()
                                 .id(cartDTO.getUsersDTO().getId())
                                 .name(cartDTO.getUsersDTO().getName())
-                                .build())
+                                .build(): null)
                         .products(cartDTO.getProductsDTO() != null ?
                                 cartDTO.getProductsDTO().stream()
                                         .map(x -> Product.builder()
