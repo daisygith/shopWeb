@@ -41,10 +41,10 @@ public class UsersServiceImpl implements UsersService {
         UsersDTO usersDTO = UsersDTO.builder()
                 .id(users.getId())
                 .name(users.getName())
-                .cartDTO(CartDTO.builder()
+                .cartDTO(users.getCart() != null ? CartDTO.builder()
                         .id(users.getCart().getId())
                         .sumPrice(users.getCart().getSumPrice())
-                        .build())
+                        .build() : null)
                 .build();
 
 
