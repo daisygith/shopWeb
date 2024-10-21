@@ -20,8 +20,7 @@ public class Users {
 
     private String name;
 
-    @JsonIgnore
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Cart cart;
 
 }
