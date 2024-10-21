@@ -46,16 +46,16 @@ public class CartServiceImpl implements CartService{
         CartDTO cartDTO = CartDTO.builder()
                 .id(cart.getId())
                 .sumPrice(cart.getSumPrice())
-                .usersDTO(UsersDTO.builder()
+                .usersDTO(cart.getUsers() != null ? UsersDTO.builder()
                         .id(cart.getUsers().getId())
                         .name(cart.getUsers().getName())
-                        .build())
-                .productsDTO(cart.getProducts().stream()
+                        .build(): null)
+                .productsDTO(cart.getProducts() != null ? cart.getProducts().stream()
                         .map(x -> ProductDTO.builder()
                                 .id(x.getId())
                                 .name(x.getName())
                                 .price(x.getPrice())
-                                .build()).collect(Collectors.toList()))
+                                .build()).collect(Collectors.toList()) : null)
                 .build();
 
         return cartDTO;
